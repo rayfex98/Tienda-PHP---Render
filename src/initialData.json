@@ -1,0 +1,204 @@
+{
+  "categories": [
+    { "id": "todos", "name": "Todos los Productos", "icon": "Laptop" },
+    { "id": "laptops", "name": "Laptops y Computadoras", "icon": "Monitor" },
+    { "id": "smartphones", "name": "Smartphones", "icon": "Smartphone" },
+    { "id": "audio", "name": "Audio y Música", "icon": "Headphones" },
+    { "id": "wearables", "name": "Wearables y Relojes", "icon": "Watch" },
+    { "id": "televisiones", "name": "Televisores y Entretenimiento", "icon": "Tv" },
+    { "id": "hogar-inteligente", "name": "Hogar Inteligente", "icon": "Home" }
+  ],
+  "products": [
+    {
+      "id": "prod-1",
+      "name": "ZenBook Pro Duo 15\"",
+      "description": "Laptop premium con doble pantalla táctil 4K OLED, procesador Intel Core i9 de última generación, 32GB de RAM y tarjeta gráfica NVIDIA RTX 4070. Ideal para creadores de contenido, diseñadores y programadores altamente exigentes.",
+      "price": 1899.99,
+      "category": "laptops",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80",
+      "stock": 12,
+      "rating": 4.8,
+      "specs": [
+        "Pantalla principal: 15.6\" 4K OLED HDR táctil",
+        "Pantalla secundaria: ScreenPad Plus de 14\"",
+        "Procesador: Intel Core i9 de 14 núcleos",
+        "Memoria RAM: 32GB LPDDR5",
+        "Almacenamiento: 2TB SSD NVMe PCIe 4.0",
+        "Gráficos: NVIDIA GeForce RTX 4070 8GB GDDR6",
+        "Teclado retroiluminado con numpad digital"
+      ],
+      "featured": true
+    },
+    {
+      "id": "prod-2",
+      "name": "AeroPhone 15 Pro Max",
+      "description": "El smartphone definitivo con cuerpo de titanio de grado aeroespacial, sistema de cámaras triples de 48MP con zoom óptico 5x, pantalla Super Retina XDR Pro de 120Hz y el procesador móvil con trazado de rayos más rápido del mundo.",
+      "price": 1199.99,
+      "category": "smartphones",
+      "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&auto=format&fit=crop&q=80",
+      "stock": 25,
+      "rating": 4.9,
+      "specs": [
+        "Diseño de chasis en Titanio Pulido",
+        "Pantalla: Super Retina XDR de 6.7\" OLED",
+        "Frecuencia de actualización dinámica: 1Hz - 120Hz",
+        "Procesador: Chip A17 Pro de 3nm",
+        "Cámara trasera: Principal 48MP f/1.78, Telefoto 5x 12MP, Gran Angular 12MP",
+        "Batería: Hasta 29 horas de reproducción de video",
+        "Carga segura con imán MagSafe de 15W"
+      ],
+      "featured": true
+    },
+    {
+      "id": "prod-3",
+      "name": "Sony WH-1000XM5 ANC",
+      "description": "Auriculares inalámbricos de diadema con cancelación de ruido de referencia líder en la industria. Ofrecen una calidad de audio de alta resolución con transductores de precisión y confort insuperable para largas horas de viaje o trabajo.",
+      "price": 349.99,
+      "category": "audio",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80",
+      "stock": 18,
+      "rating": 4.7,
+      "specs": [
+        "Cancelación Activa de Ruido (ANC) de 8 micrófonos",
+        "Procesador integrado V1 para cancelación óptima",
+        "Autonomía de batería: Hasta 30 horas con ANC activo",
+        "Carga ultrarrápida: 3 horas de uso con solo 3 min de carga",
+        "Control táctil inteligente en la copa lateral",
+        "Conexión multipunto Bluetooth 5.2 simultánea",
+        "Sensor de proximidad de pausa de audio automática"
+      ],
+      "featured": true
+    },
+    {
+      "id": "prod-4",
+      "name": "Vanguard Watch Ultra 2",
+      "description": "Reloj inteligente definitivo para deportes de aventura y supervivencia. Con caja de titanio premium de 49mm, resistencia al agua hasta 100 metros, GPS de doble frecuencia y una batería que rinde múltiples días seguidos sin recarga.",
+      "price": 799.99,
+      "category": "wearables",
+      "image": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=600&auto=format&fit=crop&q=80",
+      "stock": 8,
+      "rating": 4.6,
+      "specs": [
+        "Caja de titanio de 49 mm y cristal de zafiro",
+        "Brillo de pantalla extremo de hasta 3000 nits",
+        "Resistencia al agua: Certificación IP6X y buceo recreativo 40m",
+        "Autonomía: Hasta 36 horas de uso estándar u 72h bajo consumo",
+        "Medición de Oxígeno en Sangre, Ritmo Cardíaco y ECG",
+        "Sirena de emergencia integrada de 86 decibelios",
+        "GPS de precisión de doble frecuencia L1 y L5"
+      ],
+      "featured": true
+    },
+    {
+      "id": "prod-5",
+      "name": "Neo QLED TV 65\" Cinema",
+      "description": "Disfruta de una calidad de imagen inmejorable con tecnología de retroiluminación Mini LED que aporta negros perfectos y un contraste insólito. Modo de juego avanzado de 144Hz para jugadores profesionales y altavoces Dolby Atmos integrados.",
+      "price": 1499.00,
+      "category": "televisiones",
+      "image": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&auto=format&fit=crop&q=80",
+      "stock": 5,
+      "rating": 4.5,
+      "specs": [
+        "Pantalla de 65 pulgadas con resolución 4K Real",
+        "Tecnología Quantum Matrix con Mini LEDs de precisión",
+        "Procesador Neural Quantum 4K con IA",
+        "Tasa de refresco: Freesync Premium Pro a 144Hz",
+        "Sonido: Dolby Atmos con altavoces de 60W y 2.2.2 canales",
+        "Diseño delgado NeoSlim premium sin marcos",
+        "Smart TV con acceso directo a streaming y Xbox Cloud Hub"
+      ],
+      "featured": false
+    },
+    {
+      "id": "prod-6",
+      "name": "Smart Soundbar Atmos Elite",
+      "description": "Barra de sonido inteligente con soporte integrado para Dolby Atmos y control por voz. Sumérgete en tu cine en casa con canales acústicos multidireccionales que rebotan el sonido por todo el salón recreando un teatro auditivo.",
+      "price": 699.99,
+      "category": "audio",
+      "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80",
+      "stock": 14,
+      "rating": 4.4,
+      "specs": [
+        "9 altavoces internos dispuestos con ingeniería de precisión",
+        "Dos altavoces dipolo que proyectan audio hacia arriba",
+        "Conexión: Entrada HDMI eARC, óptica y compatibilidad AirPlay 2",
+        "Bluetooth y Wi-Fi integrados con Spotify Connect",
+        "Tecnología de calibración propietaria ADAPTiQ",
+        "Compatible con asistentes de voz Amazon Alexa y Google Assistant"
+      ],
+      "featured": false
+    },
+    {
+      "id": "prod-7",
+      "name": "AeroPad Air M2 Studio",
+      "description": "La tablet versátil perfecta con pantalla de retina de 11 pulgadas, chip M2 ultrarápido para renderizado y edición sobre la marcha. Soportado con reconocimiento biométrico avanzado, altavoces estéreo magníficos y una pluma magnética receptiva.",
+      "price": 599.99,
+      "category": "laptops",
+      "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&auto=format&fit=crop&q=80",
+      "stock": 22,
+      "rating": 4.7,
+      "specs": [
+        "Chip M2 potente con CPU de 8 núcleos y GPU de 10 núcleos",
+        "Pantalla: Liquid Retina de 11\" True Tone y color P3",
+        "Almacenamiento base: 128GB de estado sólido",
+        "Cámara trasera de 12MP y frontal ultra gran angular 12MP",
+        "Wi-Fi 6E y puerto de transferencia USB-C Thunderbolt",
+        "Soporte completo para teclado flotante acoplable"
+      ],
+      "featured": false
+    },
+    {
+      "id": "prod-8",
+      "name": "Domus Nest Hub Starter Kit",
+      "description": "Domina cada gadget de tu casa inteligente con esta pantalla inteligente interactiva acompañada de dos bombillos RGB multiespectro. Administra la calefacción, visualiza cámaras perimetrales o reproduce podcasts con comandos de voz cómodos.",
+      "price": 129.99,
+      "category": "hogar-inteligente",
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&auto=format&fit=crop&q=80",
+      "stock": 40,
+      "rating": 4.3,
+      "specs": [
+        "Pantalla inteligente HD antirreflejos de 7 pulgadas",
+        "Altavoz de rango completo y matriz de micrófonos lejanos",
+        "Tecnología Motion Sense para suspender alarmas sin contacto",
+        "Incluye 2 bombillas inteligentes RGB E27 de 10W (900 lúmenes)",
+        "Protocolos compatibles: Matter, Thread, Zigbee y Wi-Fi",
+        "Privacidad física: Interruptor de apagado físico para el micrófono"
+      ],
+      "featured": false
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-1",
+      "productId": "prod-1",
+      "userName": "Carlos Mendoza",
+      "rating": 5,
+      "comment": "La pantalla secundaria es increíble para programar y tener la documentación abierta. La potencia gráfica es impresionante.",
+      "date": "2026-05-15"
+    },
+    {
+      "id": "rev-2",
+      "productId": "prod-1",
+      "userName": "Sofía Gutiérrez",
+      "rating": 4,
+      "comment": "Excelente laptop para renderizar video. El único detalle es la duración de la batería por la potencia y las dos pantallas, por lo demás excelente.",
+      "date": "2026-06-02"
+    },
+    {
+      "id": "rev-3",
+      "productId": "prod-2",
+      "userName": "Valentina Rojas",
+      "rating": 5,
+      "comment": "El acabado en titanio se siente súper lujoso. La cámara toma fotos de noche con un nivel de detalle que nunca había visto.",
+      "date": "2026-06-10"
+    },
+    {
+      "id": "rev-4",
+      "productId": "prod-3",
+      "userName": "Andrés López",
+      "rating": 5,
+      "comment": "Llevo utilizándolos una semana en el tren de camino al trabajo y aíslan el ruido por completo. Muy recomendados.",
+      "date": "2026-04-20"
+    }
+  ]
+}
