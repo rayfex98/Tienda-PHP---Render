@@ -21,7 +21,7 @@ const HERO_SLIDES = [
   {
     title: 'El Audio Más Puro e Inmersivo',
     subtitle: 'Sony WH-1000XM5 & Altavoces Premium',
-    tagline: 'Envío gratuito asegurado en compras mayores a $1,500 MXN',
+    tagline: 'Envío gratuito asegurado en compras mayores a $1.500 ARS',
     image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=1000&auto=format&fit=crop&q=80',
     color: 'from-slate-900 via-slate-800 to-slate-950',
     categoryTarget: 'audio'
@@ -53,9 +53,9 @@ const featuredProducts = computed(() => {
 });
 
 const formatPrice = (val) => {
-  return new Intl.NumberFormat('es-MX', {
+  return new Intl.NumberFormat('es-AR', {
     style: 'currency',
-    currency: 'MXN'
+    currency: 'ARS'
   }).format(val);
 };
 
@@ -193,7 +193,7 @@ onUnmounted(() => {
         <div>
           <h4 class="text-sm font-bold text-slate-800">Envío Exprés Gratis</h4>
           <p class="text-xs text-slate-500 mt-1 leading-normal font-normal">
-            Sin costo en compras de tecnología superando los $1,500 MXN.
+            Sin costo en compras de tecnología superando los $1.500 ARS.
           </p>
         </div>
       </div>

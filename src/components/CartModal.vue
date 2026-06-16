@@ -4,9 +4,9 @@ import { store } from '../store.js';
 import { ShoppingCart, X, Check, MapPin, AlertCircle, CreditCard, Minus, Plus, Trash2, Sparkles } from 'lucide-vue-next';
 
 function formatPrice(val) {
-  return new Intl.NumberFormat('es-MX', {
+  return new Intl.NumberFormat('es-AR', {
     style: 'currency',
-    currency: 'MXN'
+    currency: 'ARS'
   }).format(val);
 }
 

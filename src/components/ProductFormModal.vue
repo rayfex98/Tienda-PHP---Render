@@ -215,7 +215,7 @@ const handleSubmit = (e) => {
         <div class="grid grid-cols-2 gap-4">
           <div>
             <label for="form-prod-price" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2 font-sans">
-              Precio (MXN) *
+              Precio (ARS) *
             </label>
             <input
               id="form-prod-price"

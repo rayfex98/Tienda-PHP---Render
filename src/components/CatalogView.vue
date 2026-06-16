@@ -125,9 +125,9 @@ const getCategoryIconComp = (iconName) => {
 };
 
 const formatPrice = (val) => {
-  return new Intl.NumberFormat('es-MX', {
+  return new Intl.NumberFormat('es-AR', {
     style: 'currency',
-    currency: 'MXN'
+    currency: 'ARS'
   }).format(val);
 };
 
@@ -164,7 +164,7 @@ const handleCategoryPillClick = (catId) => {
       <div class="space-y-1 text-left">
         <h1 class="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
           Catálogo de Tecnología
-          <span v-if="isAdminMode" class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-rose-100 text-rose-700 uppercase tracking-widest leading-none border border-rose-200">
+          <span v-if="isAdminMode" class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#1D0D49]/10 text-[#1D0D49] uppercase tracking-widest leading-none border border-[#1D0D49]/20">
             ADMIN INVENTARIO
           </span>
         </h1>

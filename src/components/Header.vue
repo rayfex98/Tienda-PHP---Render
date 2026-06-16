@@ -133,12 +133,12 @@ const toggleCart = () => {
               :class="[
                 'flex items-center gap-1.5 px-3 py-1.5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition-all duration-202 cursor-pointer',
                 store.state.isAdminMode
-                  ? 'bg-rose-50 border-rose-200 text-rose-700 shadow-xs shadow-rose-100'
+                  ? 'bg-[#1D0D49]/10 border-[#1D0D49]/20 text-[#1D0D49] shadow-xs shadow-[#1D0D49]/10'
                   : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
               ]"
               :title="store.state.isAdminMode ? 'Desactivar Modo Administrador' : 'Activar Modo Administrador'"
             >
-              <Settings :class="['w-3.5 h-3.5', store.state.isAdminMode ? 'animate-spin text-rose-600' : 'text-slate-500']" />
+              <Settings :class="['w-3.5 h-3.5', store.state.isAdminMode ? 'animate-spin text-[#1D0D49]' : 'text-slate-500']" />
               <span class="hidden sm:inline">Admin</span>
             </button>
           </div>

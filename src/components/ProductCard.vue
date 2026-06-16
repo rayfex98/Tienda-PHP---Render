@@ -13,9 +13,9 @@ const emit = defineEmits(['add-to-cart', 'edit', 'delete']);
 const router = useRouter();
 
 const formattedPrice = computed(() => {
-  return new Intl.NumberFormat('es-MX', {
+  return new Intl.NumberFormat('es-AR', {
     style: 'currency',
-    currency: 'MXN'
+    currency: 'ARS'
   }).format(props.product.price);
 });
 
@@ -79,7 +79,7 @@ const handleAddToCart = (e) => {
         <button
           :id="`delete-btn-${product.id}`"
           @click="handleDelete"
-          class="p-1.5 bg-white hover:bg-rose-50 border border-slate-200 text-rose-600 rounded-lg shadow-xs hover:text-rose-700 transition cursor-pointer"
+          class="p-1.5 bg-white hover:bg-[#1D0D49]/10 border border-slate-200 text-[#1D0D49] rounded-lg shadow-xs transition cursor-pointer"
           title="Eliminar producto"
         >
           <Trash2 class="w-3.5 h-3.5" />

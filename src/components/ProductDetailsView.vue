@@ -41,9 +41,9 @@ const relatedProducts = computed(() => {
 });
 
 const formatPrice = (val) => {
-  return new Intl.NumberFormat('es-MX', {
+  return new Intl.NumberFormat('es-AR', {
     style: 'currency',
-    currency: 'MXN'
+    currency: 'ARS'
   }).format(val);
 };
 
