@@ -59,20 +59,6 @@ const formatPrice = (val) => {
   }).format(val);
 };
 
-const handleSlideClick = (categoryTarget) => {
-  // Navigate to catalog
-  store.state.searchQuery = '';
-  router.push({ path: '/catalogo', query: { category: categoryTarget } });
-};
-
-const handleCategoryClick = (categoryId) => {
-  router.push({ path: '/catalogo', query: { category: categoryId } });
-};
-
-const handleViewDetails = (productId) => {
-  router.push(`/producto/${productId}`);
-};
-
 const onAddToCart = (product) => {
   store.addToCart(product);
 };
@@ -113,10 +99,11 @@ onUnmounted(() => {
     <!-- 1. INTERACTIVE HERO CAROUSEL -->
     <section id="hero-carousel-section" class="relative h-[360px] sm:h-[460px] rounded-3xl overflow-hidden shadow-md group">
       <!-- Carousel slides -->
-      <div
+      <router-link
         v-for="(slide, index) in HERO_SLIDES"
         :key="`slide-${index}`"
-        @click="handleSlideClick(slide.categoryTarget)"
+        :to="{ path: '/catalogo', query: { category: slide.categoryTarget } }"
+        @click="store.state.searchQuery = ''"
         :class="['absolute inset-0 flex items-center transition-all duration-700 ease-in-out cursor-pointer',
           index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none']"
       >
@@ -146,15 +133,14 @@ onUnmounted(() => {
             {{ slide.tagline }}
           </p>
           <div class="pt-2">
-            <button
-              @click.stop="handleSlideClick(slide.categoryTarget)"
+            <span
               class="px-5 py-2.5 bg-white hover:bg-slate-50 text-blue-900 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-sm transition group-hover:translate-x-1 cursor-pointer"
             >
               Ver Ofertas <ArrowRight class="w-4 h-4 text-blue-600 transition duration-250 group-hover:translate-x-1" />
-            </button>
+            </span>
           </div>
         </div>
-      </div>
+      </router-link>
 
       <!-- Carousel controls -->
       <button
@@ -244,20 +230,20 @@ onUnmounted(() => {
             Filtros inmediatos para ubicar los mejores componentes y accesorios oficiales.
           </p>
         </div>
-        <button
-          @click="handleCategoryClick('todos')"
+        <router-link
+          to="/catalogo?category=todos"
           class="text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 hover:underline shrink-0 cursor-pointer"
         >
           Ver catálogo completo <ArrowRight class="w-4 h-4" />
-        </button>
+        </router-link>
       </div>
 
       <!-- Categories Grid -->
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-        <button
+        <router-link
           v-for="category in CATEGORIES"
           :key="category.id"
-          @click="handleCategoryClick(category.id)"
+          :to="{ path: '/catalogo', query: { category: category.id } }"
           class="group bg-white hover:bg-blue-50/20 border border-slate-200 hover:border-blue-300 p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-2.5 transition duration-300 shadow-2xs hover:shadow-xs cursor-pointer"
         >
           <div class="p-3.5 bg-slate-50 group-hover:bg-blue-600 group-hover:text-white rounded-xl text-slate-500 transition duration-300">
@@ -266,7 +252,7 @@ onUnmounted(() => {
           <span class="text-xs sm:text-sm font-bold text-slate-850 leading-tight group-hover:text-blue-600">
             {{ category.name }}
           </span>
-        </button>
+        </router-link>
       </div>
     </section>
 
@@ -280,12 +266,12 @@ onUnmounted(() => {
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div
+        <router-link
           v-for="product in featuredProducts.slice(0, 4)"
           :key="`featured-${product.id}`"
           :id="`featured-card-${product.id}`"
-          @click="handleViewDetails(product.id)"
-          class="group cursor-pointer bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md rounded-2xl overflow-hidden transition duration-300 flex flex-col justify-between text-left"
+          :to="`/producto/${product.id}`"
+          class="group cursor-pointer bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md rounded-2xl overflow-hidden transition duration-300 flex flex-col justify-between"
         >
           <!-- Image -->
           <div class="relative aspect-4/3 bg-slate-50 overflow-hidden">
@@ -299,7 +285,6 @@ onUnmounted(() => {
               DESTACADO
             </span>
           </div>
-
           <!-- Content -->
           <div class="p-4 flex-grow flex flex-col justify-between">
             <div>
@@ -310,7 +295,7 @@ onUnmounted(() => {
               <h3 class="text-sm font-bold text-slate-800 group-hover:text-blue-600 transition truncate">
                 {{ product.name }}
               </h3>
-              <p class="text-xs text-slate-400 leading-relaxed line-clamp-2 mt-1 font-normal">
+              <p class="text-xs text-slate-404 leading-relaxed line-clamp-2 mt-1 font-normal">
                 {{ product.description }}
               </p>
             </div>
@@ -319,13 +304,13 @@ onUnmounted(() => {
               <span class="text-sm font-black text-slate-900">{{ formatPrice(product.price) }}</span>
               <button
                 @click.stop="onAddToCart(product)"
-                class="px-3.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl text-xs font-bold flex items-center gap-1 transition active:scale-95 cursor-pointer"
+                class="px-3.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl text-xs font-bold flex items-center gap-1 transition active:scale-95 cursor-pointer animate-none"
               >
                 Añadir
               </button>
             </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </section>
 

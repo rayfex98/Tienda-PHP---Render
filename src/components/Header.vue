@@ -12,11 +12,6 @@ const cartCount = computed(() => {
   return store.state.cart.reduce((sum, item) => sum + item.quantity, 0);
 });
 
-const handleNavClick = (path) => {
-  router.push(path);
-  isMobileMenuOpen.value = false;
-};
-
 const handleSearchSubmit = (e) => {
   e.preventDefault();
   if (route.path !== '/catalogo') {
@@ -39,27 +34,27 @@ const toggleCart = () => {
       <div class="flex items-center justify-between h-16 md:h-20 gap-4">
         
         <!-- Logo -->
-        <div 
+        <router-link 
           id="logo-brand" 
-          @click="handleNavClick('/')" 
+          to="/" 
           class="flex items-center cursor-pointer shrink-0 transition-transform active:scale-95 animate-fade-in"
         >
           <div class="p-2.5 bg-blue-600 rounded-xl text-white mr-2.5 shadow-sm shadow-blue-100">
             <Laptop class="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
-          <div class="flex flex-col">
+          <div class="flex flex-col text-left">
             <span class="text-lg sm:text-xl font-bold tracking-tight text-slate-800 leading-none">
               Electro<span class="text-blue-600 font-extrabold">Mart</span>
             </span>
             <span class="text-[10px] text-slate-405 font-bold tracking-widest mt-0.5 font-sans">MINIMAL TECH</span>
           </div>
-        </div>
+        </router-link>
 
         <!-- Desktop Navigation -->
         <nav id="desktop-nav" class="hidden md:flex items-center space-x-1 lg:space-x-2">
-          <button
+          <router-link
             id="nav-btn-home"
-            @click="handleNavClick('/')"
+            to="/"
             :class="[
               'px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-205 cursor-pointer',
               route.path === '/'
@@ -68,10 +63,10 @@ const toggleCart = () => {
             ]"
           >
             Inicio
-          </button>
-          <button
+          </router-link>
+          <router-link
             id="nav-btn-catalogo"
-            @click="handleNavClick('/catalogo')"
+            to="/catalogo"
             :class="[
               'px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-205 cursor-pointer',
               route.path === '/catalogo' || route.path.startsWith('/producto/')
@@ -80,10 +75,10 @@ const toggleCart = () => {
             ]"
           >
             Catálogo
-          </button>
-          <button
+          </router-link>
+          <router-link
             id="nav-btn-sobre-nosotros"
-            @click="handleNavClick('/nosotros')"
+            to="/nosotros"
             :class="[
               'px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-205 cursor-pointer',
               route.path === '/nosotros'
@@ -92,7 +87,7 @@ const toggleCart = () => {
             ]"
           >
             Sobre Nosotros
-          </button>
+          </router-link>
         </nav>
 
         <!-- Search Bar - Desktop -->
@@ -174,42 +169,45 @@ const toggleCart = () => {
     <!-- Mobile Menu Overlay -->
     <div v-if="isMobileMenuOpen" id="mobile-menu" class="md:hidden border-t border-slate-100 bg-white shadow-xl animate-fade-in">
       <div class="px-4 pt-2.5 pb-5 space-y-2">
-        <button
+        <router-link
           id="mobile-nav-home"
-          @click="handleNavClick('/')"
+          to="/"
+          @click="isMobileMenuOpen = false"
           :class="[
-            'w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all cursor-pointer',
+            'block w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all cursor-pointer',
             route.path === '/'
               ? 'bg-blue-50 text-blue-600'
               : 'text-slate-700 hover:bg-slate-50'
           ]"
         >
           Inicio
-        </button>
-        <button
+        </router-link>
+        <router-link
           id="mobile-nav-catalogo"
-          @click="handleNavClick('/catalogo')"
+          to="/catalogo"
+          @click="isMobileMenuOpen = false"
           :class="[
-            'w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all cursor-pointer',
+            'block w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all cursor-pointer',
             route.path === '/catalogo' || route.path.startsWith('/producto/')
               ? 'bg-blue-50 text-blue-600'
               : 'text-slate-700 hover:bg-slate-50'
           ]"
         >
           Catálogo de Productos
-        </button>
-        <button
+        </router-link>
+        <router-link
           id="mobile-nav-sobre-nosotros"
-          @click="handleNavClick('/nosotros')"
+          to="/nosotros"
+          @click="isMobileMenuOpen = false"
           :class="[
-            'w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all cursor-pointer',
+            'block w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all cursor-pointer',
             route.path === '/nosotros'
               ? 'bg-blue-50 text-blue-600'
               : 'text-slate-700 hover:bg-slate-50'
           ]"
         >
           Sobre Nosotros
-        </button>
+        </router-link>
       </div>
     </div>
   </header>

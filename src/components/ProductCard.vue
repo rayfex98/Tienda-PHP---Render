@@ -1,6 +1,5 @@
 <script setup>
 import { computed } from 'vue';
-import { useRouter } from 'vue-router';
 import { Star, ShoppingCart, Eye, Edit, Trash2 } from 'lucide-vue-next';
 
 const props = defineProps({
@@ -9,8 +8,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['add-to-cart', 'edit', 'delete']);
-
-const router = useRouter();
 
 const formattedPrice = computed(() => {
   return new Intl.NumberFormat('es-AR', {
@@ -23,10 +20,6 @@ const shortDescription = computed(() => {
   const desc = props.product.description || '';
   return desc.length > 75 ? `${desc.slice(0, 75)}...` : desc;
 });
-
-const viewDetails = () => {
-  router.push(`/producto/${props.product.id}`);
-};
 
 const handleEdit = (e) => {
   e.stopPropagation();
@@ -88,12 +81,12 @@ const handleAddToCart = (e) => {
 
       <!-- Quick View Cover Overlay -->
       <div class="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300">
-        <button
-          @click="viewDetails"
+        <router-link
+          :to="`/producto/${product.id}`"
           class="flex items-center gap-1.5 px-4 py-2 bg-white text-xs font-bold rounded-xl text-slate-800 shadow-sm border border-slate-200 transform translate-y-3 group-hover:translate-y-0 transition duration-300 hover:bg-slate-50 cursor-pointer"
         >
           <Eye class="w-3.5 h-3.5 text-blue-600" /> Ver detalles
-        </button>
+        </router-link>
       </div>
     </div>
 
@@ -134,13 +127,13 @@ const handleAddToCart = (e) => {
 
       <!-- Main Info -->
       <div class="mb-4 flex-1">
-        <h3
-          @click="viewDetails"
-          class="text-base sm:text-lg font-bold text-slate-800 hover:text-blue-600 transition cursor-pointer line-clamp-1 mb-1.5"
+        <router-link
+          :to="`/producto/${product.id}`"
+          class="text-base sm:text-lg font-bold text-slate-800 hover:text-blue-600 transition cursor-pointer line-clamp-1 mb-1.5 block"
           :title="product.name"
         >
           {{ product.name }}
-        </h3>
+        </router-link>
         <p class="text-slate-500 text-xs sm:text-sm line-clamp-2 leading-relaxed font-normal">
           {{ shortDescription }}
         </p>

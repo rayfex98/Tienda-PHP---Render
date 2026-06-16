@@ -149,11 +149,6 @@ const onDeleteProduct = (productId) => {
 const onAddToCart = (product) => {
   store.addToCart(product);
 };
-
-const handleCategoryPillClick = (catId) => {
-  selectedCategory.value = catId;
-  router.replace({ path: '/catalogo', query: { category: catId } });
-};
 </script>
 
 <template>
@@ -222,10 +217,11 @@ const handleCategoryPillClick = (catId) => {
         <div class="space-y-3">
           <h3 class="text-xs font-bold text-slate-400 preset-sans uppercase tracking-widest font-sans">Categorías</h3>
           <div class="flex flex-col gap-1.5">
-            <button
+            <router-link
               v-for="cat in CATEGORIES"
               :key="`sidebar-cat-${cat.id}`"
-              @click="handleCategoryPillClick(cat.id)"
+              replace
+              :to="{ path: '/catalogo', query: { category: cat.id } }"
               :class="['flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold transition cursor-pointer',
                 selectedCategory === cat.id
                   ? 'bg-blue-600 text-white shadow-xs'
@@ -235,7 +231,7 @@ const handleCategoryPillClick = (catId) => {
                 <component :is="getCategoryIconComp(cat.icon)" class="w-4 h-4 shrink-0" />
                 <span>{{ cat.name }}</span>
               </div>
-            </button>
+            </router-link>
           </div>
         </div>
 

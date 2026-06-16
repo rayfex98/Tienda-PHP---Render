@@ -1,12 +1,5 @@
 <script setup>
-import { useRouter } from 'vue-router';
 import { Laptop, Mail, Phone, MapPin, Shield, Award } from 'lucide-vue-next';
-
-const router = useRouter();
-
-const handleNavClick = (path) => {
-  router.push(path);
-};
 </script>
 
 <template>
@@ -14,16 +7,15 @@ const handleNavClick = (path) => {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 pb-12 border-b border-gray-800">
         
-        {/* Brand Info */}
         <div id="footer-brand" class="space-y-4">
-          <div class="flex items-center cursor-pointer" @click="handleNavClick('/')">
+          <router-link to="/" class="flex items-center cursor-pointer">
             <div class="p-2 bg-blue-600 rounded-lg text-white mr-2">
               <Laptop class="w-5 h-5" />
             </div>
             <span class="text-lg font-bold tracking-tight text-white">
               Electro<span class="text-blue-500">Mart</span>
             </span>
-          </div>
+          </router-link>
           <p class="text-sm text-slate-400 leading-relaxed font-normal">
             La tienda líder en venta de componentes electrónicos y gadgets de última generación con garantía certificada y soporte premium.
           </p>
@@ -37,38 +29,36 @@ const handleNavClick = (path) => {
           </div>
         </div>
 
-        {/* Quick Links */}
         <div id="footer-links-explore" class="space-y-4">
           <h3 class="text-sm font-semibold text-white tracking-wider uppercase">Explorar</h3>
           <ul class="space-y-2.5 text-sm">
             <li>
-              <button 
-                @click="handleNavClick('/')" 
-                class="hover:text-white hover:underline transition-all text-left cursor-pointer"
+              <router-link 
+                to="/" 
+                class="hover:text-white hover:underline transition-all text-left cursor-pointer block"
               >
                 Inicio
-              </button>
+              </router-link>
             </li>
             <li>
-              <button 
-                @click="handleNavClick('/catalogo')" 
-                class="hover:text-white hover:underline transition-all text-left cursor-pointer"
+              <router-link 
+                to="/catalogo" 
+                class="hover:text-white hover:underline transition-all text-left cursor-pointer block"
               >
                 Catálogo de Productos
-              </button>
+              </router-link>
             </li>
             <li>
-              <button 
-                @click="handleNavClick('/nosotros')" 
-                class="hover:text-white hover:underline transition-all text-left cursor-pointer"
+              <router-link 
+                to="/nosotros" 
+                class="hover:text-white hover:underline transition-all text-left cursor-pointer block"
               >
                 Sobre Nosotros
-              </button>
+              </router-link>
             </li>
           </ul>
         </div>
 
-        {/* Categories */}
         <div id="footer-links-categories" class="space-y-4">
           <h3 class="text-sm font-semibold text-white tracking-wider uppercase">Categorías</h3>
           <ul class="space-y-2.5 text-sm text-gray-400">
@@ -79,7 +69,6 @@ const handleNavClick = (path) => {
           </ul>
         </div>
 
-        {/* Location and Contact */}
         <div id="footer-contact-info" class="space-y-4">
           <h3 class="text-sm font-semibold text-white tracking-wider uppercase font-sans">Contacto & Soporte</h3>
           <ul class="space-y-3 text-sm">

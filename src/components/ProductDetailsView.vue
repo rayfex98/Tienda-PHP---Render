@@ -1,14 +1,11 @@
 <script setup>
 import { ref, computed, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
 import { store } from '../store.js';
 import { ArrowLeft, Star, ShoppingCart, ShieldCheck, HelpCircle, Truck, Calendar, AlertCircle } from 'lucide-vue-next';
 
 const props = defineProps({
   id: { type: String, required: true }
 });
-
-const router = useRouter();
 
 // Retrieve product and reviews from store
 const product = computed(() => {
@@ -45,14 +42,6 @@ const formatPrice = (val) => {
     style: 'currency',
     currency: 'ARS'
   }).format(val);
-};
-
-const handleGoBack = () => {
-  router.push('/catalogo');
-};
-
-const handleViewProduct = (productId) => {
-  router.push(`/producto/${productId}`);
 };
 
 const onAddToCart = (prod) => {
@@ -109,24 +98,24 @@ const handleReviewSubmit = (e) => {
     <p class="text-sm text-slate-500 font-normal">
       Lo sentimos, pero el código del producto solicitado no existe o fue removido del inventario por un encargado del sistema.
     </p>
-    <button
-      @click="handleGoBack"
-      class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm transition shadow-xs cursor-pointer font-sans"
+    <router-link
+      to="/catalogo"
+      class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm transition shadow-xs cursor-pointer font-sans inline-block"
     >
       Regresar al Catálogo
-    </button>
+    </router-link>
   </div>
 
   <div v-else id="product-details-container" class="space-y-12 sm:space-y-16 pb-16 animate-fade-in text-slate-800">
     
     <!-- 1. BACK CONTROLLER BAR -->
     <div id="details-top-bar" class="flex items-center">
-      <button
-        @click="handleGoBack"
+      <router-link
+        to="/catalogo"
         class="flex items-center gap-1.5 px-4 py-2 bg-white hover:bg-slate-50 text-xs sm:text-sm font-bold text-slate-700 rounded-xl border border-slate-200 shadow-2xs transition active:scale-95 cursor-pointer"
       >
         <ArrowLeft class="w-4 h-4" /> Regresar al Catálogo
-      </button>
+      </router-link>
     </div>
 
     <!-- 2. PRODUCT DATA SHEET GRID -->
@@ -344,11 +333,11 @@ const handleReviewSubmit = (e) => {
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div
+        <router-link
           v-for="rel in relatedProducts"
           :key="`related-card-${rel.id}`"
-          @click="handleViewProduct(rel.id)"
-          class="group cursor-pointer bg-white border border-slate-200 hover:border-blue-300 rounded-2xl overflow-hidden p-4 sm:p-5 flex flex-col justify-between shadow-2xs hover:shadow-xs transition"
+          :to="`/producto/${rel.id}`"
+          class="group cursor-pointer bg-white border border-slate-200 hover:border-blue-300 rounded-2xl overflow-hidden p-4 sm:p-5 flex flex-col justify-between shadow-2xs hover:shadow-xs transition text-left block"
         >
           <div class="aspect-video bg-slate-50 rounded-xl overflow-hidden mb-3 border border-slate-100">
             <img :src="rel.image" :alt="rel.name" class="w-full h-full object-cover transition group-hover:scale-105" />
@@ -368,7 +357,7 @@ const handleReviewSubmit = (e) => {
               Añadir
             </button>
           </div>
-        </div>
+        </router-link>
       </div>
     </section>
 
